@@ -62,7 +62,6 @@ body{margin:0;font-family:Montserrat;background:linear-gradient(180deg,#fff,#fff
 }
 .note{padding:42px}
 .note h2{font-family:'Great Vibes',cursive;font-size:46px;margin-bottom:8px}
-.note textarea{width:100%;min-height:180px;border-radius:16px;border:1px solid #f0cdd6;padding:18px;font-size:16px;font-family:Montserrat;resize:vertical}
 .propose{padding:0 42px 42px;text-align:center}
 .propose button{padding:14px 30px;border-radius:999px;border:none;font-size:18px;font-weight:700;background:linear-gradient(90deg,#ff4d6d,#ff8fab);color:white;cursor:pointer;box-shadow:0 10px 22px rgba(255,77,109,.35)}
 .footer{text-align:center;padding:24px;font-size:14px;color:#a06b7d}
@@ -77,7 +76,8 @@ body{margin:0;font-family:Montserrat;background:linear-gradient(180deg,#fff,#fff
 audio{display:none}
 @media(max-width:768px){
   .slider{aspect-ratio: 4 / 3}
-}.top h1{font-size:46px}}
+  .top h1{font-size:46px}
+}
 /* Entrance animations */
 .fade-up{
   opacity:0;
@@ -173,20 +173,15 @@ audio{display:none}
       <p style="color:var(--muted)">Every photo here holds a random moments of me getting yours pics.</p>
       <div class="gallery" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:20px">
   <img src="images/5th.jpg" style="width:100%;border-radius:14px">
-  <img src="images/6th.jpg" style="width:100%;border-radius:14px">
-  <img src="images/7th.jpg" style="width:100%;border-radius:14px">
+  <img src="images/6.jpg" style="width:100%;border-radius:14px">
+  <img src="images/7.jpg" style="width:100%;border-radius:14px">
 </div>
 
     <!-- NOTE SECTION -->
-    <div class="note fade-up fade-delay-3">
-      <h2>My Letter To You 💌</h2>
-     <texttarea>
-yeh sare time kitne sare uper timer hai dikh rha hoga na andhi huh, but sachi ye sare time maine enjoy kiyatera sath sachi,
-hum kitne jayda ladte hai par pyar bhi utna he karti hai tu ik so mai yahi hu hamesha tere sath teri sari bak bak sune ke liye,
-bhuki nich hai tu, I love youuu mera bacha mwahahha.
-I promise to keep choosing you — today, tomorrow, always.
-      </textarea>
-    </div>
+  <div class="note fade-up fade-delay-3">
+  <h2>My Letter To You 💌</h2>
+  <p id="loveLetter"></p>
+</div>
 
     <!-- PROPOSAL -->
     <div class="propose">
@@ -215,9 +210,8 @@ const MY_LOVE = 'lomdi';
 const YOUR_NAME = 'lomda';
 
 // Apply names
-document.querySelector('h1').innerHTML = `Happy 1 Year 2 Months, ${lomdi} ❤`;
-document.querySelector('.footer').innerHTML = `Made with <span class="heart">❤</span> by ${lomda}`;
-
+document.querySelector('h1').innerHTML = `Happy 1 Year 2 Months, ${MY_LOVE} ❤`;
+document.querySelector('.footer').innerHTML = `Made with <span class="heart">❤</span> by ${YOUR_NAME}`;
 // Counter
 function updateCounter(){
   const start = new Date(START_DATE);
@@ -289,12 +283,31 @@ document.querySelectorAll('.gallery img').forEach(img=>{
     document.getElementById('imgModal').style.display='flex';
   }
 });
+const text = `yeh sare time kitne sare uper timer hai dikh rha hoga na andhi huh,
+but sachi ye sare time maine enjoy kiya tera sath sachi,
+hum kitne jyada ladte hai par pyar bhi utna hi karti hai tu,
+is so mai yahi hu hamesha tere sath teri sari bak bak sunne ke liye,
+bhuki nich hai tu, I love youuu mera bacha mwahhaha.
+I promise to keep choosing you — today, tomorrow, always.`;
+
+let i = 0;
+const letter = document.getElementById('loveLetter');
+
+function typeText(){
+  if(i < text.length){
+    letter.innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typeText, 40);
+  }
+}
+typeText();
 </script>
 <div id="imgModal" onclick="this.style.display='none'">
   <img id="modalImg">
 </div>
 </body>
 </html>
+
 
 
 

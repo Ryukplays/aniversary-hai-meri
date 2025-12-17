@@ -1,0 +1,160 @@
+<!--
+File: anniversary_page.html
+1 Year 2 Month Anniversary – All Features Enabled
+-->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Our 1 Year 2 Month Anniversary ❤</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fff5f7;--accent:#ff4d6d;--text:#3a1f2d;--muted:#7a5a66;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Montserrat;background:linear-gradient(180deg,#fff,#fff5f7);color:var(--text)}
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:40px}
+.card{max-width:920px;width:100%;background:white;border-radius:26px;box-shadow:0 20px 60px rgba(0,0,0,.18);overflow:hidden}
+.top{padding:42px;text-align:center}
+.top h1{font-family:'Great Vibes',cursive;font-size:58px;margin:0;color:#4a1b2b}
+.top p{font-size:18px;color:var(--muted);max-width:620px;margin:10px auto}
+.counter{margin-top:14px;font-weight:600;color:#a14a63}
+.slider{position:relative;height:420px;overflow:hidden}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity 1.4s ease}
+.slide.active{opacity:1}
+.slide img{width:100%;height:100%;object-fit:cover}
+.note{padding:42px}
+.note h2{font-family:'Great Vibes',cursive;font-size:46px;margin-bottom:8px}
+.note textarea{width:100%;min-height:180px;border-radius:16px;border:1px solid #f0cdd6;padding:18px;font-size:16px;font-family:Montserrat;resize:vertical}
+.propose{padding:0 42px 42px;text-align:center}
+.propose button{padding:14px 30px;border-radius:999px;border:none;font-size:18px;font-weight:700;background:linear-gradient(90deg,#ff4d6d,#ff8fab);color:white;cursor:pointer;box-shadow:0 10px 22px rgba(255,77,109,.35)}
+.footer{text-align:center;padding:24px;font-size:14px;color:#a06b7d}
+.heart{color:var(--accent)}
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:.3s}
+.overlay.show{opacity:1;pointer-events:auto}
+.modal{background:white;border-radius:22px;padding:34px;text-align:center;max-width:520px;width:92%;box-shadow:0 25px 70px rgba(0,0,0,.3)}
+.modal h3{font-family:'Great Vibes',cursive;font-size:48px;margin:0 0 10px;color:#4a1b2b}
+.modal p{color:var(--muted);font-size:18px}
+.modal button{margin-top:16px;padding:12px 26px;border:none;border-radius:999px;background:linear-gradient(90deg,#7ef3d3,#6de4ff);font-weight:700;font-size:16px}
+#confetti{position:fixed;inset:0;pointer-events:none}
+audio{display:none}
+@media(max-width:768px){.slider{height:300px}.top h1{font-size:46px}}
+</style>
+</head>
+<body>
+
+<!-- BACKGROUND MUSIC -->
+<audio autoplay loop>
+  <source src="MUSIC_URL" type="audio/mpeg">
+</audio>
+
+<div class="hero">
+  <div class="card">
+    <div class="top">
+      <h1>Happy 1 Year 2 Months, MY_LOVE ❤</h1>
+      <p>From the first message to today, every day with you has been my favorite story.</p>
+      <div class="counter" id="counter"></div>
+    </div>
+
+    <!-- PHOTO SLIDER -->
+    <!-- PHOTO SLIDER -->
+    <div class="slider" id="slider">
+      <div class="slide active"><img src="https://drive.google.com/uc?export=view&id=1iR08hnUQOkLvZfvwOtOArd6D8ynklP_b"></div>
+      <div class="slide"><img src="https://drive.google.com/uc?export=view&id=1Xn-wz_9MSOYgcWGXXOh-VPrq_7a2VfNR"></div>
+      <div class="slide"><img src="https://drive.google.com/uc?export=view&id=11tCOdb80V1S5GgK9XlI70mWinS0YRg2y"></div>
+      <div class="slide"><img src="https://drive.google.com/uc?export=view&id=1BxBGeOzqCnevhyP3qKoEZvk0Bm9PD4r5"></div>
+      <div class="slide"><img src="https://drive.google.com/uc?export=view&id=1pIaLXlUDzdfVp1UY5FW_u3cE4jK0eyl6"></div>
+      <div class="slide"><img src="https://drive.google.com/uc?export=view&id=1DypDGdCeavp9oFjyPZ2mVp2p_Yld89ve"></div>
+    </div>
+
+    <!-- MEMORY GALLERY -->
+    <div class="note" style="padding-top:10px">
+      <h2>Our Memories 📸</h2>
+      <p style="color:var(--muted)">Every photo here holds a thousand emotions.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:20px">
+        <img src="https://drive.google.com/uc?export=view&id=1iR08hnUQOkLvZfvwOtOArd6D8ynklP_b" style="width:100%;border-radius:14px">
+        <img src="https://drive.google.com/uc?export=view&id=11tCOdb80V1S5GgK9XlI70mWinS0YRg2y" style="width:100%;border-radius:14px">
+        <img src="https://drive.google.com/uc?export=view&id=1BxBGeOzqCnevhyP3qKoEZvk0Bm9PD4r5" style="width:100%;border-radius:14px">
+        <img src="https://drive.google.com/uc?export=view&id=1pIaLXlUDzdfVp1UY5FW_u3cE4jK0eyl6" style="width:100%;border-radius:14px">
+        <img src="https://drive.google.com/uc?export=view&id=1DypDGdCeavp9oFjyPZ2mVp2p_Yld89ve" style="width:100%;border-radius:14px">
+      </div>
+    </div>
+
+    <!-- NOTE SECTION -->
+    <div class="note">
+      <h2>My Letter To You 💌</h2>
+      <textarea>
+These 1 year and 2 months with you have been the most beautiful part of my life.
+Every smile, every fight, every hug has only made me love you more.
+Thank you for choosing me every single day.
+I promise to keep choosing you — today, tomorrow, always.
+      </textarea>
+    </div>
+
+    <!-- PROPOSAL -->
+    <div class="propose">
+      <button id="proposeBtn">Will you stay with me forever? ❤</button>
+    </div>
+
+    <div class="footer">Made with <span class="heart">❤</span> by YOUR_NAME</div>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="overlay" id="overlay">
+  <div class="modal">
+    <h3>Will you marry me? 💍</h3>
+    <p>You are my today, my tomorrow, my forever.</p>
+    <button id="yesBtn">Yes ❤</button>
+  </div>
+</div>
+
+<canvas id="confetti"></canvas>
+
+<script>
+/* CONFIG – EDIT THESE */
+const START_DATE = '2024-10-17'; // YYYY-MM-DD (your relationship start date)
+const MY_LOVE = 'HER_NAME';
+const YOUR_NAME = 'YOUR_NAME';
+
+// Apply names
+document.querySelector('h1').innerHTML = `Happy 1 Year 2 Months, ${MY_LOVE} ❤`;
+document.querySelector('.footer').innerHTML = `Made with <span class="heart">❤</span> by ${YOUR_NAME}`;
+
+// Counter
+function updateCounter(){
+  const start = new Date(START_DATE);
+  const now = new Date();
+  const diff = Math.floor((now - start)/(1000*60*60*24));
+  document.getElementById('counter').innerText = `${diff} days of love together 💞`;
+}
+updateCounter();
+
+// Slider
+const slides = document.querySelectorAll('.slide');
+let current = 0;
+setInterval(()=>{
+  slides[current].classList.remove('active');
+  current = (current+1)%slides.length;
+  slides[current].classList.add('active');
+},3500);
+
+// Proposal modal
+const overlay=document.getElementById('overlay');
+document.getElementById('proposeBtn').onclick=()=>{overlay.classList.add('show');startConfetti()};
+document.getElementById('yesBtn').onclick=()=>{overlay.classList.remove('show');stopConfetti()};
+
+// Confetti
+const canvas=document.getElementById('confetti');const ctx=canvas.getContext('2d');
+function resize(){canvas.width=innerWidth;canvas.height=innerHeight}resize();addEventListener('resize',resize);
+let pieces=[];function rand(a,b){return Math.random()*(b-a)+a}
+function Piece(){this.x=rand(0,canvas.width);this.y=rand(-canvas.height,0);this.s=rand(6,12);this.v=rand(2,6);this.c=`hsl(${rand(330,360)},70%,60%)`}
+Piece.prototype.update=function(){this.y+=this.v;if(this.y>canvas.height)this.y=rand(-100,0)}
+Piece.prototype.draw=function(){ctx.fillStyle=this.c;ctx.fillRect(this.x,this.y,this.s,this.s)}
+let anim;function startConfetti(){for(let i=0;i<120;i++)pieces.push(new Piece());anim=setInterval(()=>{ctx.clearRect(0,0,canvas.width,canvas.height);pieces.forEach(p=>{p.update();p.draw()})},16)}
+function stopConfetti(){clearInterval(anim);pieces=[];ctx.clearRect(0,0,canvas.width,canvas.height)}
+</script>
+</body>
+</html>

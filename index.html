@@ -24,7 +24,7 @@ body{margin:0;font-family:Montserrat;background:linear-gradient(180deg,#fff,#fff
 .slider{position:relative;height:420px;overflow:hidden}
 .slide{position:absolute;inset:0;opacity:0;transition:opacity 1.4s ease}
 .slide.active{opacity:1}
-.slide img{width:100%;height:100%;object-fit:cover}
+.slide img{width:100%;height:100%;object-fit:cover;display:block;}
 .note{padding:42px}
 .note h2{font-family:'Great Vibes',cursive;font-size:46px;margin-bottom:8px}
 .note textarea{width:100%;min-height:180px;border-radius:16px;border:1px solid #f0cdd6;padding:18px;font-size:16px;font-family:Montserrat;resize:vertical}
@@ -72,9 +72,9 @@ audio{display:none}
       <h2>Our Memories 📸</h2>
       <p style="color:var(--muted)">Every photo here holds a thousand emotions.</p>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:20px">
-       <div class="slide"><img src="images/20250821_113537.jpg"></div>
-      <div class="slide"><img src="images/20250821_113552.jpg"></div>
-      <div class="slide"><img src="images/20250821_113607.jpg"></div>
+      <img src="images/20250821_113537.jpg" style="width:100%;border-radius:14px">
+<img src="images/20250821_113552.jpg" style="width:100%;border-radius:14px">
+<img src="images/20250821_113607.jpg" style="width:100%;border-radius:14px">
     </div>
     </div>
 
@@ -111,9 +111,9 @@ I promise to keep choosing you — today, tomorrow, always.
 
 <script>
 /* CONFIG – EDIT THESE */
-const START_DATE = '2024-10-17'; // YYYY-MM-DD (your relationship start date)
-const MY_LOVE = 'HER_NAME';
-const YOUR_NAME = 'YOUR_NAME';
+const START_DATE = '2024-10-22'; // YYYY-MM-DD (your relationship start date)
+const MY_LOVE = 'lomdi';
+const YOUR_NAME = 'lomda';
 
 // Apply names
 document.querySelector('h1').innerHTML = `Happy 1 Year 2 Months, ${MY_LOVE} ❤`;
@@ -129,7 +129,7 @@ function updateCounter(){
 updateCounter();
 
 // Slider
-const slides = document.querySelectorAll('.slide');
+const slides = document.querySelectorAll('#slider .slide');
 let current = 0;
 setInterval(()=>{
   slides[current].classList.remove('active');
@@ -154,5 +154,6 @@ function stopConfetti(){clearInterval(anim);pieces=[];ctx.clearRect(0,0,canvas.w
 </script>
 </body>
 </html>
+
 
 

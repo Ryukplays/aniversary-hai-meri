@@ -255,14 +255,15 @@ setInterval(()=>{
 },1200);
 const music=document.getElementById('bgMusic');
 music.volume=0;
-music.play();
 let vol=0;
-const fadeIn=setInterval(()=>{
-  if(vol<0.4){
-    vol+=0.02;
-    music.volume=vol;
-  }else{clearInterval(fadeIn);
-},200);
+const fadeIn = setInterval(() => {
+  if (vol < 0.4) {
+    vol += 0.02;
+    music.volume = vol;
+  } else {
+    clearInterval(fadeIn);
+  }
+}, 200);
 document.querySelectorAll('.gallery img').forEach(img=>{
   img.onclick=()=>{
     document.getElementById('modalImg').src=img.src;
@@ -293,6 +294,7 @@ typeText();
 </div>
 </body>
 </html>
+
 
 
 

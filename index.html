@@ -232,7 +232,12 @@ setInterval(()=>{
 
 // Proposal modal
 const overlay=document.getElementById('overlay');
-document.getElementById('proposeBtn').onclick=()=>{overlay.classList.add('show');startConfetti()};
+document.getElementById('proposeBtn').onclick = () => {
+  overlay.classList.add('show');
+
+  music.play();     // ✅ YAHI SABSE IMPORTANT LINE
+  startConfetti();
+};
 document.getElementById('yesBtn').onclick=()=>{overlay.classList.remove('show');stopConfetti()};
 
 // Confetti
@@ -294,6 +299,7 @@ typeText();
 </div>
 </body>
 </html>
+
 
 
 

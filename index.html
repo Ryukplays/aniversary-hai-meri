@@ -247,18 +247,33 @@ function nextSlide(){
   current = (current + 1) % slides.length;
   slides[current].classList.add('active');
 }
+let sliderInterval = null;
 
-let sliderInterval = setInterval(nextSlide, 2200);
-
-const slider = document.getElementById('slider');
-
-slider.addEventListener('mouseenter', () => {
-  clearInterval(sliderInterval);
-});
-
-slider.addEventListener('mouseleave', () => {
+function startSlider(){
+  if(sliderInterval) return;
   sliderInterval = setInterval(nextSlide, 1800);
+}
+
+function stopSlider(){
+  clearInterval(sliderInterval);
+  sliderInterval = null;
+}
+
+// Start immediately
+startSlider();
+
+// Pause / Resume on tab visibility
+document.addEventListener('visibilitychange', () => {
+  if(document.hidden){
+    stopSlider();
+  } else {
+    startSlider();
+  }
 });
+
+// Optional hover pause
+slider.addEventListener('mouseenter', stopSlider);
+slider.addEventListener('mouseleave', startSlider);
 
 // Proposal modal
 const overlay=document.getElementById('overlay');
@@ -343,6 +358,7 @@ typeText();
 </div>
 </body>
 </html>
+
 
 
 

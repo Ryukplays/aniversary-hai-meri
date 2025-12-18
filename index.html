@@ -261,22 +261,8 @@ const fadeIn=setInterval(()=>{
   if(vol<0.4){
     vol+=0.02;
     music.volume=vol;
-  }else clearInterval(fadeIn);
+  }else{clearInterval(fadeIn);
 },200);
-const text=`These 1 year and 2 months with you have been the most beautiful part of my life.
-Every smile, every fight, every hug made me love you more.
-I choose you — today, tomorrow, always.`;
-
-let i=0;
-const letter=document.getElementById('loveLetter');
-function typeText(){
-  if(i<text.length){
-    letter.innerHTML+=text.charAt(i);
-    i++;
-    setTimeout(typeText,40);
-  }
-}
-typeText();
 document.querySelectorAll('.gallery img').forEach(img=>{
   img.onclick=()=>{
     document.getElementById('modalImg').src=img.src;
@@ -307,6 +293,7 @@ typeText();
 </div>
 </body>
 </html>
+
 
 
 

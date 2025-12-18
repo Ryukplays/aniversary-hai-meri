@@ -47,11 +47,11 @@ body{margin:0;font-family:Montserrat;background:linear-gradient(180deg,#fff,#fff
 #slider .slide:nth-child(3) img{
   object-position:center 35%;
 }
+.slide{transition:opacity .7s ease}
 
-  .slide.active img{
-  animation: cinematicZoom 8s ease forwards;
+.slide.active img{
+  animation: cinematicZoom 4s ease forwards;
 }
-
 @keyframes cinematicZoom{
   from{
     transform: scale(1);
@@ -220,6 +220,8 @@ body{
 <canvas id="confetti"></canvas>
 
 <script>
+const music = document.getElementById('bgMusic');
+music.volume = 0;   // start silent
 /* CONFIG – EDIT THESE */
 const START_DATE = '2024-10-22'; // YYYY-MM-DD (your relationship start date)
 const MY_LOVE = 'lomdi';
@@ -246,7 +248,7 @@ function nextSlide(){
   slides[current].classList.add('active');
 }
 
-let sliderInterval = setInterval(nextSlide, 3500);
+let sliderInterval = setInterval(nextSlide, 2200);
 
 const slider = document.getElementById('slider');
 
@@ -263,7 +265,22 @@ const overlay=document.getElementById('overlay');
 document.getElementById('proposeBtn').onclick = () => {
   overlay.classList.add('show');
 
-  music.play();     // ✅ YAHI SABSE IMPORTANT LINE
+  // 🎵 MUSIC STARTS HERE (ONLY HERE)
+  music.play();
+
+  // 🔊 Smooth fade-in
+  let vol = 0;
+  music.volume = 0;
+
+  const fadeIn = setInterval(() => {
+    if (vol < 0.4) {
+      vol += 0.02;
+      music.volume = vol;
+    } else {
+      clearInterval(fadeIn);
+    }
+  }, 200);
+
   startConfetti();
 };
 document.getElementById('yesBtn').onclick=()=>{overlay.classList.remove('show');stopConfetti()};
@@ -286,20 +303,6 @@ setInterval(()=>{
   document.body.appendChild(heart);
   setTimeout(()=>heart.remove(),8000);
 },1200);
-const toggleBtn = document.getElementById('musicToggle');
-let isPlaying = false;
-
-toggleBtn.onclick = () => {
-  if (!isPlaying) {
-    music.play();
-    toggleBtn.innerText = '🔇 Mute';
-    isPlaying = true;
-  } else {
-    music.pause();
-    toggleBtn.innerText = '🔊 Music';
-    isPlaying = false;
-  }
-};
 music.volume=0;
 let vol=0;
 const fadeIn = setInterval(() => {
@@ -338,22 +341,9 @@ typeText();
 <div id="imgModal" onclick="this.style.display='none'">
   <img id="modalImg">
 </div>
-<button id="musicToggle" style="
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  padding:10px 16px;
-  border-radius:999px;
-  border:none;
-  background:#ff4d6d;
-  color:white;
-  font-weight:600;
-  cursor:pointer;
-  z-index:999;">
-🔊 Music
-</button>
 </body>
 </html>
+
 
 
 

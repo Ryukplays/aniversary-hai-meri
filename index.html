@@ -47,10 +47,10 @@ body{margin:0;font-family:Montserrat;background:linear-gradient(180deg,#fff,#fff
 #slider .slide:nth-child(3) img{
   object-position:center 35%;
 }
-.slide{transition:opacity .7s ease}
+.slide{transition:opacity .4s ease}
 
 .slide.active img{
-  animation: cinematicZoom 4s ease forwards;
+  animation: cinematicZoom 2s ease forwards;
 }
 @keyframes cinematicZoom{
   from{
@@ -257,7 +257,7 @@ slider.addEventListener('mouseenter', () => {
 });
 
 slider.addEventListener('mouseleave', () => {
-  sliderInterval = setInterval(nextSlide, 3500);
+  sliderInterval = setInterval(nextSlide, 1800);
 });
 
 // Proposal modal
@@ -343,6 +343,7 @@ typeText();
 </div>
 </body>
 </html>
+
 
 
 

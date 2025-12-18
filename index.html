@@ -132,6 +132,22 @@ audio{display:none}
   .top h1{font-size:42px}
   .note{padding:26px}
 }
+.gallery img{
+  transition:transform .4s ease, box-shadow .4s ease;
+  cursor:pointer;
+}
+.gallery img:hover{
+  transform:scale(1.05);
+  box-shadow:0 15px 40px rgba(0,0,0,.25);
+}
+body{
+  animation:pageFade 1.2s ease;
+}
+
+@keyframes pageFade{
+  from{opacity:0}
+  to{opacity:1}
+}
 </style>
 </head>
 <body>
@@ -224,11 +240,23 @@ updateCounter();
 // Slider
 const slides = document.querySelectorAll('#slider .slide');
 let current = 0;
-setInterval(()=>{
+function nextSlide(){
   slides[current].classList.remove('active');
-  current = (current+1)%slides.length;
+  current = (current + 1) % slides.length;
   slides[current].classList.add('active');
-},3500);
+}
+
+let sliderInterval = setInterval(nextSlide, 3500);
+
+const slider = document.getElementById('slider');
+
+slider.addEventListener('mouseenter', () => {
+  clearInterval(sliderInterval);
+});
+
+slider.addEventListener('mouseleave', () => {
+  sliderInterval = setInterval(nextSlide, 3500);
+});
 
 // Proposal modal
 const overlay=document.getElementById('overlay');
@@ -258,7 +286,20 @@ setInterval(()=>{
   document.body.appendChild(heart);
   setTimeout(()=>heart.remove(),8000);
 },1200);
-const music=document.getElementById('bgMusic');
+const toggleBtn = document.getElementById('musicToggle');
+let isPlaying = false;
+
+toggleBtn.onclick = () => {
+  if (!isPlaying) {
+    music.play();
+    toggleBtn.innerText = '🔇 Mute';
+    isPlaying = true;
+  } else {
+    music.pause();
+    toggleBtn.innerText = '🔊 Music';
+    isPlaying = false;
+  }
+};
 music.volume=0;
 let vol=0;
 const fadeIn = setInterval(() => {
@@ -297,8 +338,23 @@ typeText();
 <div id="imgModal" onclick="this.style.display='none'">
   <img id="modalImg">
 </div>
+<button id="musicToggle" style="
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  padding:10px 16px;
+  border-radius:999px;
+  border:none;
+  background:#ff4d6d;
+  color:white;
+  font-weight:600;
+  cursor:pointer;
+  z-index:999;">
+🔊 Music
+</button>
 </body>
 </html>
+
 
 
 
